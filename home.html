@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.page{
+    margin-top:5%;
+    background-color: #F0F0F0;
+    padding: 0;
+}
+.content{
+    text-align: center;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important;
+}
+.stylish-input-group .form-control{
+    border-right:0;
+    box-shadow:0 0 0;
+    border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+.embed{
+    padding: 10px;
+}
+#git{
+    float: left;
+}
+.embed a{
+    float: right;
+}
+</style>
+<script>
+function init(){
+    var page = document.querySelector('.page');
+    var form = page.querySelector('form');
+    var input = form.querySelector('input');
+    var first = true;
+    var player, embed, a;
+    document.querySelector('.content h5').innerHTML = window.location + "www.youtube.com/watch?v=UwQcPRSlyrE";
+    form.addEventListener('submit', function (){
+        if(first){
+            first = false;
+            page.innerHTML += '<div class="embed"> <label for="comment">Audio Player: </label><audio controls><source type="audio/mp3"></audio> <a href="">Download</a><textarea class="form-control" rows="5" id="comment" readonly></textarea></div>';
+            embed = page.querySelector('textarea');
+            player = page.querySelector('audio');
+            a = page.querySelector('.embed a');
+        }
+        embed.value = '<audio controls><source src="' + window.location + input.value + '" type="audio/mp3"></audio>';
+        player.setAttribute('src', window.location + input.value);
+        a.setAttribute('href', window.location + input.value);
+        document.querySelector('.content h5').innerHTML = window.location + input.value;
+    });
+}
+</script>
+</head>
+<body onload="init();">
+<div class="container">
+    <div class="row">
+            <div class="col-sm-12 col-lg-6 col-lg-offset-3 page">
+                <div class="content">
+                <a href="https://github.com/iowebon/YTBE" id="git"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIiB3aWR0aD0iNjAwLjI1IiBoZWlnaHQ9IjE2Mi4zNDM3NSIgaWQ9InN2ZzIiIHZlcnNpb249IjEuMSIgaW5rc2NhcGU6dmVyc2lvbj0iMC40OC4yIHI5ODE5Ij4gIDxkZWZzIGlkPSJkZWZzNCI+ICAgIDxjbGlwUGF0aCBpZD0iY2xpcFBhdGgzMDIwIiBjbGlwUGF0aFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+ICAgICAgPHBhdGggaWQ9InBhdGgzMDIyIiBkPSJtIDAsMCA0ODAyLDAgMCwxMjk4Ljc1IC00ODAyLDAgTCAwLDAgeiIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIvPiAgICA8L2NsaXBQYXRoPiAgPC9kZWZzPiAgPHNvZGlwb2RpOm5hbWVkdmlldyBpZD0iYmFzZSIgcGFnZWNvbG9yPSIjZmZmZmZmIiBib3JkZXJjb2xvcj0iIzY2NjY2NiIgYm9yZGVyb3BhY2l0eT0iMS4wIiBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIiBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIiBpbmtzY2FwZTp6b29tPSIwLjM1IiBpbmtzY2FwZTpjeD0iMzcwLjQxMTg5IiBpbmtzY2FwZTpjeT0iLTE0Ni4wNTYyNiIgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB4IiBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJsYXllcjEiIHNob3dncmlkPSJmYWxzZSIgaW5rc2NhcGU6d2luZG93LXdpZHRoPSI4MjgiIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjY1NSIgaW5rc2NhcGU6d2luZG93LXg9IjIwOCIgaW5rc2NhcGU6d2luZG93LXk9IjUyIiBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIwIiBmaXQtbWFyZ2luLXRvcD0iMCIgZml0LW1hcmdpbi1sZWZ0PSIwIiBmaXQtbWFyZ2luLXJpZ2h0PSIwIiBmaXQtbWFyZ2luLWJvdHRvbT0iMCI+ICAgIDxzb2RpcG9kaTpndWlkZSBwb3NpdGlvbj0iLTg1LjU4OTI5MywtNTEzLjExMzgzIiBvcmllbnRhdGlvbj0iMCw3NDQuMDk0NDgiIGlkPSJndWlkZTMwNzAiLz4gICAgPHNvZGlwb2RpOmd1aWRlIHBvc2l0aW9uPSI2NTguNTA1MTksLTUxMy4xMTM4MyIgb3JpZW50YXRpb249Ii0xMDUyLjM2MjIsMCIgaWQ9Imd1aWRlMzA3MiIvPiAgICA8c29kaXBvZGk6Z3VpZGUgcG9zaXRpb249IjY1OC41MDUxOSw1MzkuMjQ4MzciIG9yaWVudGF0aW9uPSIwLC03NDQuMDk0NDgiIGlkPSJndWlkZTMwNzQiLz4gICAgPHNvZGlwb2RpOmd1aWRlIHBvc2l0aW9uPSItODUuNTg5MjkzLDUzOS4yNDgzNyIgb3JpZW50YXRpb249IjEwNTIuMzYyMiwwIiBpZD0iZ3VpZGUzMDc2Ii8+ICAgIDxzb2RpcG9kaTpndWlkZSBwb3NpdGlvbj0iLTg1LjU4OTI5MywtNTEzLjExMzgzIiBvcmllbnRhdGlvbj0iMCw3NDQuMDk0NDgiIGlkPSJndWlkZTMwNzgiLz4gICAgPHNvZGlwb2RpOmd1aWRlIHBvc2l0aW9uPSI2NTguNTA1MTksLTUxMy4xMTM4MyIgb3JpZW50YXRpb249Ii0xMDUyLjM2MjIsMCIgaWQ9Imd1aWRlMzA4MCIvPiAgICA8c29kaXBvZGk6Z3VpZGUgcG9zaXRpb249IjY1OC41MDUxOSw1MzkuMjQ4MzciIG9yaWVudGF0aW9uPSIwLC03NDQuMDk0NDgiIGlkPSJndWlkZTMwODIiLz4gICAgPHNvZGlwb2RpOmd1aWRlIHBvc2l0aW9uPSItODUuNTg5MjkzLDUzOS4yNDgzNyIgb3JpZW50YXRpb249IjEwNTIuMzYyMiwwIiBpZD0iZ3VpZGUzMDg0Ii8+ICA8L3NvZGlwb2RpOm5hbWVkdmlldz4gIDxtZXRhZGF0YSBpZD0ibWV0YWRhdGE3Ij4gICAgPHJkZjpSREY+ICAgICAgPGNjOldvcmsgcmRmOmFib3V0PSIiPiAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+ICAgICAgICA8ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+ICAgICAgICA8ZGM6dGl0bGUvPiAgICAgIDwvY2M6V29yaz4gICAgPC9yZGY6UkRGPiAgPC9tZXRhZGF0YT4gIDxnIGlua3NjYXBlOmxhYmVsPSJMYXllciAxIiBpbmtzY2FwZTpncm91cG1vZGU9ImxheWVyIiBpZD0ibGF5ZXIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtODUuNTg5MjkzLC0zNzYuOTA0NikiPiAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLjI1LDAsMCwtMS4yNSw4NS41ODkyOTMsNTM5LjI0ODM1KSIgaW5rc2NhcGU6bGFiZWw9Imlua19leHRfWFhYWFhYIiBpZD0iZzMwMTIiPiAgICAgIDxnIHRyYW5zZm9ybT0ic2NhbGUoMC4xLDAuMSkiIGlkPSJnMzAxNCI+ICAgICAgICA8ZyBpZD0iZzMwMTYiPiAgICAgICAgICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcFBhdGgzMDIwKSIgaWQ9ImczMDE4Ij4gICAgICAgICAgICA8cGF0aCBpZD0icGF0aDMwMjQiIHN0eWxlPSJmaWxsOiMxNjEzMTI7ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOm5vbnplcm87c3Ryb2tlOm5vbmUiIGQ9Im0gOTI0Ljk3Myw3NDIuODc1IC00MDMuNTY3LDAgYyAtMTAuNDEsMCAtMTguODU1LC04LjQ0OSAtMTguODU1LC0xOC44NjcgbCAwLC0xOTcuMzA1IGMgMCwtMTAuNDEgOC40NDUsLTE4Ljg4NyAxOC44NTUsLTE4Ljg4NyBsIDE1Ny40MzQsMCAwLC0yNDUuMTM2IGMgMCwwIC0zNS4zNTYsLTEyLjA1MSAtMTMzLjA3OCwtMTIuMDUxIC0xMTUuMzAxLDAgLTI3Ni4zNjcsNDIuMTMzIC0yNzYuMzY3LDM5Ni4zMTIgMCwzNTQuMjU5IDE2Ny43MTQsNDAwLjg2OSAzMjUuMTc1LDQwMC44NjkgMTM2LjI5NywwIDE5NS4wMiwtMjQgMjMyLjM4MywtMzUuNTYgMTEuNzM4LC0zLjYgMjIuNTk4LDguMDkgMjIuNTk4LDE4LjUxIGwgNDUuMDE5LDE5MC42NCBjIDAsNC44NyAtMS42NDgsMTAuNzQgLTcuMjA3LDE0LjczIC0xNS4xNzUsMTAuODIgLTEwNy43NDYsNjIuNjIgLTM0MS42MDEsNjIuNjIgQyAyNzYuMzQ4LDEyOTguNzUgMCwxMTg0LjEzIDAsNjMzLjEyOSAwLDgyLjEwOTQgMzE2LjM5NSwwIDU4My4wMiwwIGMgMjIwLjc1NywwIDM1NC42ODMsOTQuMzM5OCAzNTQuNjgzLDk0LjMzOTggNS41MiwzLjA1MDggNi4xMTMsMTAuNzYyMiA2LjExMywxNC4zMDEyIGwgMCw2MTUuMzY3IGMgMCwxMC40MTggLTguNDMzLDE4Ljg2NyAtMTguODQzLDE4Ljg2NyIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIvPiAgICAgICAgICAgIDxwYXRoIGlkPSJwYXRoMzAyNiIgc3R5bGU9ImZpbGw6IzE2MTMxMjtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZSIgZD0ibSAzMDA0Ljc1LDEyMzIuNzMgYyAwLDEwLjUgLTguMzIsMTguOTcgLTE4LjczLDE4Ljk3IGwgLTIyNy4yMywwIGMgLTEwLjM4LDAgLTE4LjgyLC04LjQ3IC0xOC44MiwtMTguOTcgMCwtMC4wNSAwLjA2LC00MzkuMTI1IDAuMDYsLTQzOS4xMjUgbCAtMzU0LjE5LDAgMCw0MzkuMTI1IGMgMCwxMC41IC04LjM2LDE4Ljk3IC0xOC43NSwxOC45NyBsIC0yMjcuMjIsMCBjIC0xMC4zNCwwIC0xOC43NywtOC40NyAtMTguNzcsLTE4Ljk3IGwgMCwtMTE4OS4wMzA4IGMgMCwtMTAuNDg4MyA4LjQzLC0xOS4wMjczIDE4Ljc3LC0xOS4wMjczIGwgMjI3LjIyLDAgYyAxMC4zOSwwIDE4Ljc1LDguNTM5IDE4Ljc1LDE5LjAyNzMgbCAwLDUwOC41ODk4IDM1NC4xOSwwIGMgMCwwIC0wLjYyLC01MDguNTUwNyAtMC42MiwtNTA4LjU4OTggMCwtMTAuNDg4MyA4LjQzLC0xOS4wMjczIDE4LjgyLC0xOS4wMjczIGwgMjI3Ljc3LDAgYyAxMC40MSwwIDE4LjczLDguNTM5IDE4Ljc1LDE5LjAyNzMgbCAwLDExODkuMDMwOCIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIvPiAgICAgICAgICAgIDxwYXRoIGlkPSJwYXRoMzAyOCIgc3R5bGU9ImZpbGw6IzE2MTMxMjtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZSIgZD0ibSAxMzUzLjc2LDEwNzYuNyBjIDAsODEuODIgLTY1LjYsMTQ3Ljk0IC0xNDYuNTMsMTQ3Ljk0IC04MC44NSwwIC0xNDYuNSwtNjYuMTIgLTE0Ni41LC0xNDcuOTQgMCwtODEuNzM1IDY1LjY1LC0xNDguMDMyIDE0Ni41LC0xNDguMDMyIDgwLjkzLDAgMTQ2LjUzLDY2LjI5NyAxNDYuNTMsMTQ4LjAzMiIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIvPiAgICAgICAgICAgIDxwYXRoIGlkPSJwYXRoMzAzMCIgc3R5bGU9ImZpbGw6IzE2MTMxMjtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZSIgZD0ibSAxMzM3LjUxLDI5NC41MiBjIDAsMzAuNDY0IDAsNTQ4Ljg1OSAwLDU0OC44NTkgMCwxMC40MjIgLTguNDEsMTguOTQxIC0xOC44LDE4Ljk0MSBsIC0yMjYuNTEsMCBjIC0xMC4zOSwwIC0xOS42OSwtMTAuNzE4IC0xOS42OSwtMjEuMTM2IDAsMCAwLC02NjAuNDU0IDAsLTc4Ni4zNTIgMCwtMjMuMTEzMiAxNC40LC0yOS45ODA0IDMzLjA0LC0yOS45ODA0IDAsMCA5Ni42OCwwIDIwNC4wOCwwIDIyLjM5LDAgMjcuODgsMTAuOTg4MiAyNy44OCwzMC4zNDc2IDAsNDIuMTUyNCAwLDIwNy4yNjk4IDAsMjM5LjMyMDgiIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiLz4gICAgICAgICAgICA8cGF0aCBpZD0icGF0aDMwMzIiIHN0eWxlPSJmaWxsOiMxNjEzMTI7ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOm5vbnplcm87c3Ryb2tlOm5vbmUiIGQ9Im0gMzg2OC4zMiw4NjAuNTMxIC0yMjUuNDksMCBjIC0xMC4zNCwwIC0xOC43NiwtOC41MjMgLTE4Ljc2LC0xOS4wMTEgbCAwLC01ODMuMDIgYyAwLDAgLTU3LjI4LC00MS45MSAtMTM4LjU5LC00MS45MSAtODEuMywwIC0xMDIuODgsMzYuODkgLTEwMi44OCwxMTYuNSAwLDc5LjcwNyAwLDUwOC40MyAwLDUwOC40MyAwLDEwLjQ4OCAtOC40LDE5LjAxMSAtMTguNzUsMTkuMDExIGwgLTIyOC44NSwwIGMgLTEwLjMzLDAgLTE4Ljc5LC04LjUyMyAtMTguNzksLTE5LjAxMSAwLDAgMCwtMzEwLjQ4MSAwLC01NDYuOTMgMCwtMjM2LjQ2MTEgMTMxLjc5LC0yOTQuMzA4NzUgMzEzLjA5LC0yOTQuMzA4NzUgMTQ4LjczLDAgMjY4LjY1LDgyLjE2Nzk1IDI2OC42NSw4Mi4xNjc5NSAwLDAgNS43MSwtNDMuMzAwOCA4LjI5LC00OC40Mzc1IDIuNTksLTUuMTIxMSA5LjMyLC0xMC4yOTI5IDE2LjU5LC0xMC4yOTI5IGwgMTQ1LjU5LDAuNjQwNiBjIDEwLjMzLDAgMTguNzksOC41MzkgMTguNzksMTguOTgwNCBsIC0wLjA3LDc5OC4xODAyIGMgMCwxMC40ODggLTguNDMsMTkuMDExIC0xOC44MiwxOS4wMTEiIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiLz4gICAgICAgICAgICA8cGF0aCBpZD0icGF0aDMwMzQiIHN0eWxlPSJmaWxsOiMxNjEzMTI7ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOm5vbnplcm87c3Ryb2tlOm5vbmUiIGQ9Im0gNDM5NS42NywyMTcuMzA5IGMgLTc4LjIxLDIuMzgyIC0xMzEuMjYsMzcuODcxIC0xMzEuMjYsMzcuODcxIGwgMCwzNzYuNTQzIGMgMCwwIDUyLjM0LDMyLjA3OCAxMTYuNTUsMzcuODEyIDgxLjIsNy4yNzQgMTU5LjQ0LC0xNy4yNTQgMTU5LjQ0LC0yMTAuOTU3IDAsLTIwNC4yNTggLTM1LjMxLC0yNDQuNTY2IC0xNDQuNzMsLTI0MS4yNjkgeiBtIDg4Ljk0LDY2OS45MzMgYyAtMTI4LjA3LDAgLTIxNS4xOCwtNTcuMTQgLTIxNS4xOCwtNTcuMTQgbCAwLDQwMi42MjggYyAwLDEwLjUgLTguMzksMTguOTcgLTE4Ljc1LDE4Ljk3IGwgLTIyNy44NywwIGMgLTEwLjM2LDAgLTE4Ljc4LC04LjQ3IC0xOC43OCwtMTguOTcgbCAwLC0xMTg5LjAzMDggYyAwLC0xMC40ODgzIDguNDIsLTE5LjAyNzMgMTguODEsLTE5LjAyNzMgMC4wMiwwIDE1OC4wNSwwIDE1OC4xLDAgNy4xMiwwIDEyLjUxLDMuNjY3OSAxNi40OSwxMC4wOTc2IDMuOTMsNi4zOTA3IDkuNiw1NC44MjAzIDkuNiw1NC44MjAzIDAsMCA5My4xOCwtODguMzAwNzQgMjY5LjU3LC04OC4zMDA3NCAyMDcuMDgsMCAzMjUuODQsMTA1LjA0Mjk0IDMyNS44NCw0NzEuNTQ2OTQgMCwzNjYuNTEyIC0xODkuNjcsNDE0LjQwNiAtMzE3LjgzLDQxNC40MDYiIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiLz4gICAgICAgICAgICA8cGF0aCBpZD0icGF0aDMwMzYiIHN0eWxlPSJmaWxsOiMxNjEzMTI7ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOm5vbnplcm87c3Ryb2tlOm5vbmUiIGQ9Im0gMTk5MC41OCw4NjIuNDI2IC0xNzAuNDUsMCBjIDAsMCAtMC4yNiwyMjUuMTM0IC0wLjI2LDIyNS4xODQgMCw4LjUyIC00LjM5LDEyLjc4IC0xNC4yNCwxMi43OCBsIC0yMzIuMjgsMCBjIC05LjAzLDAgLTEzLjg4LC0zLjk3IC0xMy44OCwtMTIuNjUgbCAwLC0yMzIuNjk3IGMgMCwwIC0xMTYuNCwtMjguMTAyIC0xMjQuMjcsLTMwLjM3MSAtNy44NCwtMi4yNzQgLTEzLjYxLC05LjUgLTEzLjYxLC0xOC4xMjUgbCAwLC0xNDYuMjI3IGMgMCwtMTAuNTE1IDguNCwtMTguOTk2IDE4Ljc5LC0xOC45OTYgbCAxMTkuMDksMCBjIDAsMCAwLC0xNTIuOTQxIDAsLTM1MS43ODUgMCwtMjYxLjI4OSAxODMuMjgsLTI4Ni45NjA4OCAzMDYuOTYsLTI4Ni45NjA4OCA1Ni41MSwwIDEyNC4xMSwxOC4xNTIzOCAxMzUuMjcsMjIuMjczNDggNi43NSwyLjQ4MDQgMTAuNjcsOS40Njg3IDEwLjY3LDE3LjA0NjggbCAwLjE5LDE2MC44NjM2IGMgMCwxMC40ODggLTguODYsMTguOTc2IC0xOC44NCwxOC45NzYgLTkuOTMsMCAtMzUuMzQsLTQuMDM5IC02MS41LC00LjAzOSAtODMuNzIsMCAtMTEyLjA5LDM4LjkzIC0xMTIuMDksODkuMzE3IDAsNTAuMzUxIC0wLjAxLDMzNC4zMDggLTAuMDEsMzM0LjMwOCBsIDE3MC40NiwwIGMgMTAuMzksMCAxOC44LDguNDgxIDE4LjgsMTguOTk2IGwgMCwxODMuMTYgYyAwLDEwLjQ5NyAtOC40MSwxOC45NDYgLTE4LjgsMTguOTQ2IiBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIi8+ICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgICA8L2c+ICAgIDwvZz4gIDwvZz48L3N2Zz4=" height="20"></a><br>
+                    <h4>You can embed or download a youtube video as an audio webm like this:</h4>
+                    <h5>http://www.ytbe.cf/www.youtube.com/watch?v=UwQcPRSlyrE</h5>
+                    <h4>Or write its URL below to generate an audio embedding HTML5 code:</h4>
+                </div>
+                    <form onsubmit="return false;">
+                    <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Generate" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </button>
+                    </span>
+                    </div>
+                    </form>
+            </div>
+    </div>
+</div>
+</body>
+</html>
